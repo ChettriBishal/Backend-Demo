@@ -36,23 +36,25 @@ const upDoc = doc.map((student) =>{
             --electives[arr[i]];
         }
     }
-    if(given.length <= 2){
-        for(let i=0;i < 4;i++){
-            if(given.length >= 2) break;
-            for(let item in electives){
-                if(item && (!includes(given))){
-                    given.push(item);
-                    item--;
-                }
-            }
-        }
-    }
-    console.log(given[0]);
-    console.log(given[1]);
-    console.log('/////////////////////////////////////////////////////////////n');
+    // if(given.length <= 2){
+    //     for(let i=0;i < 4;i++){
+    //         if(given.length >= 2) break;
+    //         for(let item in electives){
+    //             if(item && (!includes(given))){
+    //                 given.push(item);
+    //                 electives[item]--;
+    //             }
+    //         }
+    //     }
+    // }
     student.elective1 = given[0];
     student.elective2 = given[1];
+
+    return student;
 })
+
+const excelDocument = json2xls(upDoc);
+fs.writeFileSync("Alloted_Electives.xlsx", excelDocument,"binary");
 
 console.log(upDoc);
 
