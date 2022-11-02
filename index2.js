@@ -30,7 +30,7 @@ const upDoc = doc.map((student) =>{
     
     let given = [];
     for(let i = 0;i < 4;i++){
-        if(given.length >=2) break;
+        if(given.length ==2) break;
         if(electives[arr[i]] > 0){
             given.push(arr[i]);
             --electives[arr[i]];
